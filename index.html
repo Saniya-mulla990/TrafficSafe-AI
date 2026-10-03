@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="TrafficSafe AI - Intelligent Road Safety Analytics"
+    >
+
+    <title>TrafficSafe AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN PAGE
+     ===================================================== -->
+
+<div id="loginPage" class="login-page">
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <div class="login-brand">
+                <div class="logo">
+                    <div class="logo-icon">TS</div>
+
+                    <div class="logo-text">
+                        TRAFFICSAFE <span>AI</span>
+                    </div>
+                </div>
+
+                <p>Intelligent road safety analytics</p>
+            </div>
+
+            <h1 class="login-title">
+                Welcome back
+            </h1>
+
+            <p class="login-subtitle">
+                Sign in to access your traffic intelligence dashboard.
+            </p>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="toggle-password"
+                            aria-label="Show password"
+                        >
+                            •••
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                    <button
+                        type="button"
+                        id="forgotPassword"
+                        class="text-button"
+                    >
+                        Forgot password?
+                    </button>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Sign in
+                </button>
+
+            </form>
+
+            <button
+                type="button"
+                id="demoLogin"
+                class="secondary-button"
+            >
+                Open demo dashboard
+            </button>
+
+            <div style="
+                margin-top: 22px;
+                padding-top: 18px;
+                border-top: 1px solid var(--border);
+                text-align: center;
+                color: var(--text-muted);
+                font-size: 12px;
+            ">
+                Don't have an account?
+
+                <button
+                    type="button"
+                    id="createAccount"
+                    class="text-button"
+                >
+                    Create account
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     APPLICATION
+     ===================================================== -->
+
+<div id="appPage" class="app-page hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    TS
+                </div>
+
+                <div class="logo-text">
+                    TRAFFICSAFE <span>AI</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-label">
+                Analytics
+            </div>
+
+
+            <!-- Dashboard -->
+
+            <button
+                class="nav-item active"
+                data-section="dashboard"
+            >
+
+                <span class="icon">
+                    ◇
+                </span>
+
+                <span>
+                    Overview
+                </span>
+
+            </button>
+
+
+            <!-- Prediction -->
+
+            <button
+                class="nav-item"
+                data-section="prediction"
+            >
+
+                <span class="icon">
+                    ⌁
+                </span>
+
+                <span>
+                    Risk Prediction
+                </span>
+
+            </button>
+
+
+            <!-- Hotspots -->
+
+            <button
+                class="nav-item"
+                data-section="hotspots"
+            >
+
+                <span class="icon">
+                    ◎
+                </span>
+
+                <span>
+                    Risk Hotspots
+                </span>
+
+            </button>
+
+
+            <!-- Traffic -->
+
+            <button
+                class="nav-item"
+                data-section="traffic"
+            >
+
+                <span class="icon">
+                    ≋
+                </span>
+
+                <span>
+                    Traffic Analysis
+                </span>
+
+            </button>
+
+
+            <!-- Weather -->
+
+            <button
+                class="nav-item"
+                data-section="weather"
+            >
+
+                <span class="icon">
+                    ◌
+                </span>
+
+                <span>
+                    Weather
+                </span>
+
+            </button>
+
+
+            <div
+                class="nav-label"
+                style="margin-top: 25px;"
+            >
+                System
+            </div>
+
+
+            <!-- History -->
+
+            <button
+                class="nav-item"
+                data-section="history"
+            >
+
+                <span class="icon">
+                    ↺
+                </span>
+
+                <span>
+                    Prediction History
+                </span>
+
+            </button>
+
+
+            <!-- Model -->
+
+            <button
+                class="nav-item"
+                data-section="model"
+            >
+
+                <span class="icon">
+                    ◫
+                </span>
+
+                <span>
+                    AI Model
+                </span>
+
+            </button>
+
+
+            <button
+                id="logoutButton"
+                class="nav-item logout-button"
+                style="margin-top: 25px;"
+            >
+
+                <span class="icon">
+                    ↪
+                </span>
+
+                <span>
+                    Sign out
+                </span>
+
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div
+                style="
+                    display:flex;
+                    align-items:center;
+                    gap:14px;
+                "
+            >
+
+                <button
+                    id="mobileMenu"
+                    class="mobile-menu"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+                <div class="page-heading">
+
+                    <h1 id="pageTitle">
+                        Traffic Safety Overview
+                    </h1>
+
+                    <p id="pageSubtitle">
+                        AI-powered road safety monitoring
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="status">
+
+                    <span class="status-dot"></span>
+
+                    System operational
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="content">
+
+
+            <!-- =================================================
+                 DASHBOARD
+                 ================================================= -->
+
+            <section
+                id="dashboard"
+                class="content-section active-section"
+            >
+
+                <div class="dashboard-header">
+
+                    <div>
+
+                        <h2>
+                            Road Safety Intelligence
+                        </h2>
+
+                        <p>
+                            Monitor accident risk, traffic conditions,
+                            environmental factors and high-risk locations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+
+                <div class="stats-grid">
+
+
+                    <!-- Risk -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-header">
+
+                            <div class="stat-card-title">
+                                Current accident risk
+                            </div>
+
+                            <div class="stat-card-icon">
+                                %
+                            </div>
+
+                        </div>
+
+                        <div class="stat-value">
+                            32%
+                        </div>
+
+                        <div class="stat-description">
+                            Moderate risk level
+                        </div>
+
+                    </div>
+
+
+                    <!-- Hotspots -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-header">
+
+                            <div class="stat-card-title">
+                                High-risk zones
+                            </div>
+
+                            <div class="stat-card-icon">
+                                #
+                            </div>
+
+                        </div>
+
+                        <div class="stat-value">
+                            12
+                        </div>
+
+                        <div class="stat-description">
+                            Active monitoring zones
+                        </div>
+
+                    </div>
+
+
+                    <!-- Traffic -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-header">
+
+                            <div class="stat-card-title">
+                                Traffic density
+                            </div>
+
+                            <div class="stat-card-icon">
+                                %
+                            </div>
+
+                        </div>
+
+                        <div class="stat-value">
+                            68%
+                        </div>
+
+                        <div class="stat-description">
+                            Current network density
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHART + CONDITIONS -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- RISK CHART -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <div class="panel-title">
+                                    Accident risk trend
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Simulated weekly risk analysis
+                                </div>
+
+                            </div>
+
+                            <span class="badge medium">
+                                7 days
+                            </span>
+
+                        </div>
+
+                        <div class="chart-container">
+
+                            <canvas id="riskChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONDITIONS -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <div class="panel-title">
+                                    Current conditions
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Safety environment
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="conditions-list">
+
+
+                                <div class="condition-row">
+
+                                    <span class="condition-label">
+                                        Temperature
+                                    </span>
+
+                                    <span class="condition-value">
+                                        24°C
+                                    </span>
+
+                                </div>
+
+
+                                <div class="condition-row">
+
+                                    <span class="condition-label">
+                                        Humidity
+                                    </span>
+
+                                    <span class="condition-value">
+                                        72%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="condition-row">
+
+                                    <span class="condition-label">
+                                        Visibility
+                                    </span>
+
+                                    <span class="condition-value">
+                                        8.4 km
+                                    </span>
+
+                                </div>
+
+
+                                <div class="condition-row">
+
+                                    <span class="condition-label">
+                                        Weather
+                                    </span>
+
+                                    <span class="condition-value">
+                                        Cloudy
+                                    </span>
+
+                                </div>
+
+
+                                <div class="condition-row">
+
+                                    <span class="condition-label">
+                                        Road surface
+                                    </span>
+
+                                    <span class="condition-value">
+                                        Normal
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT PREDICTIONS -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <div class="panel-title">
+                                Recent predictions
+                            </div>
+
+                            <div class="panel-subtitle">
+                                Latest risk assessments
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="text-button"
+                            data-section-target="history"
+                        >
+                            View history
+                        </button>
+
+                    </div>
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Time
+                                    </th>
+
+                                    <th>
+                                        Risk
+                                    </th>
+
+                                    <th>
+                                        Traffic
+                                    </th>
+
+                                    <th>
+                                        Weather
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Today, 10:42
+                                    </td>
+
+                                    <td>
+                                        32%
+                                    </td>
+
+                                    <td>
+                                        Medium
+                                    </td>
+
+                                    <td>
+                                        Cloudy
+                                    </td>
+
+                                    <td>
+                                        <span class="badge medium">
+                                            Moderate
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Today, 09:15
+                                    </td>
+
+                                    <td>
+                                        21%
+                                    </td>
+
+                                    <td>
+                                        Low
+                                    </td>
+
+                                    <td>
+                                        Clear
+                                    </td>
+
+                                    <td>
+                                        <span class="badge low">
+                                            Low
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PREDICTION
+                 ================================================= -->
+
+            <section
+                id="prediction"
+                class="content-section"
+            >
+
+                <div class="dashboard-header">
+
+                    <h2>
+                        Accident Risk Prediction
+                    </h2>
+
+                    <p>
+                        Evaluate road and environmental conditions
+                        using the TrafficSafe AI risk engine.
+                    </p>
+
+                </div>
+
+
+                <div class="prediction-layout">
+
+
+                    <!-- FORM -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <div class="panel-title">
+                                    Prediction inputs
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Configure current road conditions
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="prediction-form">
+
+                            <form id="predictionForm">
+
+
+                                <div class="form-group">
+
+                                    <label for="trafficDensity">
+                                        Traffic density
+                                    </label>
+
+                                    <select id="trafficDensity">
+
+                                        <option value="15">
+                                            Low
+                                        </option>
+
+                                        <option value="45" selected>
+                                            Medium
+                                        </option>
+
+                                        <option value="80">
+                                            High
+                                        </option>
+
+                                        <option value="95">
+                                            Severe
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="weatherCondition">
+                                        Weather condition
+                                    </label>
+
+                                    <select id="weatherCondition">
+
+                                        <option value="10">
+                                            Clear
+                                        </option>
+
+                                        <option value="30" selected>
+                                            Cloudy
+                                        </option>
+
+                                        <option value="50">
+                                            Rain
+                                        </option>
+
+                                        <option value="75">
+                                            Heavy rain / fog
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="roadCondition">
+                                        Road condition
+                                    </label>
+
+                                    <select id="roadCondition">
+
+                                        <option value="15">
+                                            Good
+                                        </option>
+
+                                        <option value="40" selected>
+                                            Normal
+                                        </option>
+
+                                        <option value="65">
+                                            Wet
+                                        </option>
+
+                                        <option value="85">
+                                            Poor
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="visibility">
+                                        Visibility
+                                    </label>
+
+                                    <select id="visibility">
+
+                                        <option value="15">
+                                            Excellent
+                                        </option>
+
+                                        <option value="35" selected>
+                                            Good
+                                        </option>
+
+                                        <option value="60">
+                                            Reduced
+                                        </option>
+
+                                        <option value="85">
+                                            Very low
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="timeOfDay">
+                                        Time of day
+                                    </label>
+
+                                    <select id="timeOfDay">
+
+                                        <option value="15">
+                                            Morning
+                                        </option>
+
+                                        <option value="30" selected>
+                                            Afternoon
+                                        </option>
+
+                                        <option value="55">
+                                            Evening
+                                        </option>
+
+                                        <option value="75">
+                                            Night
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="roadType">
+                                        Road type
+                                    </label>
+
+                                    <select id="roadType">
+
+                                        <option value="20">
+                                            Highway
+                                        </option>
+
+                                        <option value="35" selected>
+                                            Urban road
+                                        </option>
+
+                                        <option value="55">
+                                            Intersection
+                                        </option>
+
+                                        <option value="70">
+                                            Rural road
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <button
+                                    type="submit"
+                                    class="primary-button"
+                                >
+                                    Analyze accident risk
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESULT -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <div class="panel-title">
+                                    Risk assessment
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    AI-generated analysis
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="prediction-result">
+
+                            <div
+                                id="riskPercentage"
+                                class="prediction-score"
+                            >
+                                32%
+                            </div>
+
+                            <div
+                                id="riskLevel"
+                                class="prediction-label"
+                            >
+                                Moderate Risk
+                            </div>
+
+                            <div
+                                id="riskMessage"
+                                class="prediction-message"
+                            >
+                                Current conditions indicate a
+                                moderate accident risk.
+                            </div>
+
+
+                            <div class="factors">
+
+                                <div class="factor">
+
+                                    <div class="factor-header">
+
+                                        <span>
+                                            Traffic density
+                                        </span>
+
+                                        <strong>
+                                            45%
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="factor-bar">
+                                        <i style="width:45%"></i>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="factor">
+
+                                    <div class="factor-header">
+
+                                        <span>
+                                            Weather
+                                        </span>
+
+                                        <strong>
+                                            30%
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="factor-bar">
+                                        <i style="width:30%"></i>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="factor">
+
+                                    <div class="factor-header">
+
+                                        <span>
+                                            Road condition
+                                        </span>
+
+                                        <strong>
+                                            40%
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="factor-bar">
+                                        <i style="width:40%"></i>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="factor">
+
+                                    <div class="factor-header">
+
+                                        <span>
+                                            Visibility
+                                        </span>
+
+                                        <strong>
+                                            35%
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="factor-bar">
+                                        <i style="width:35%"></i>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 HOTSPOTS
+                 ================================================= -->
+
+            <section
+                id="hotspots"
+                class="content-section"
+            >
+
+                <div class="dashboard-header">
+
+                    <h2>
+                        High-Risk Hotspots
+                    </h2>
+
+                    <p>
+                        Monitor locations requiring increased
+                        road-safety attention.
+                    </p>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <div class="panel-title">
+                                Risk monitoring map
+                            </div>
+
+                            <div class="panel-subtitle">
+                                Simulated accident-prone locations
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="traffic-map-container">
+    <div id="trafficMap"></div>
+
+    <div class="map-overlay">
+        <div class="map-status">
+            <span class="status-dot"></span>
+            <span>Live Traffic</span>
+        </div>
+
+        <button id="locateMe" class="map-location-btn">
+            📍 Use My Location
+        </button>
+    </div>
+</div>
+
+                    </div>
+
+                </div>
+                <div class="current-area-panel">
+
+    <div class="current-area-header">
+        <div>
+            <span class="panel-label">TRAFFICSAFE AI</span>
+            <h3>Current Area Risk</h3>
+        </div>
+
+        <span class="location-status">
+            ● LOCATION READY
+        </span>
+    </div>
+
+    <div class="current-area-content">
+
+        <div class="risk-score-box">
+            <span class="risk-score-label">ACCIDENT RISK</span>
+
+            <strong id="currentRiskPercentage">
+                --
+            </strong>
+
+            <span id="currentRiskLevel">
+                WAITING FOR LOCATION
+            </span>
+        </div>
+
+        <div class="location-details">
+
+            <div class="location-detail">
+                <span>📍 Coordinates</span>
+                <strong id="currentCoordinates">
+                    Location not detected
+                </strong>
+            </div>
+
+            <div class="location-detail">
+                <span>🚦 Traffic</span>
+                <strong>Live traffic layer</strong>
+            </div>
+
+            <div class="location-detail">
+                <span>🤖 Prediction</span>
+                <strong>AI risk analysis</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRAFFIC
+                 ================================================= -->
+
+            <section
+                id="traffic"
+                class="content-section"
+            >
+
+                <div class="dashboard-header">
+
+                    <h2>
+                        Traffic Analysis
+                    </h2>
+
+                    <p>
+                        Explore how traffic density affects
+                        predicted accident risk.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <div class="panel-title">
+                                    Traffic density simulator
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Adjust traffic conditions
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="panel-body">
+
+                            <div
+                                style="
+                                    display:flex;
+                                    justify-content:space-between;
+                                    margin-bottom:15px;
+                                "
+                            >
+
+                                <span class="condition-label">
+                                    Traffic density
+                                </span>
+
+                                <strong id="trafficValue">
+                                    50%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="slider-container">
+
+                                <input
+                                    type="range"
+                                    id="trafficSlider"
+                                    min="0"
+                                    max="100"
+                                    value="50"
+                                >
+
+                            </div>
+
+
+                            <div
+                                style="
+                                    margin-top:30px;
+                                    padding:22px;
+                                    background:#0c1118;
+                                    border:1px solid var(--border);
+                                    border-radius:8px;
+                                "
+                            >
+
+                                <div class="condition-label">
+                                    Estimated accident risk
+                                </div>
+
+                                <div
+                                    id="simulationRisk"
+                                    style="
+                                        margin-top:8px;
+                                        font-size:34px;
+                                        font-weight:700;
+                                    "
+                                >
+                                    44%
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <div class="panel-title">
+                                    Weekly traffic density
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Network activity
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="chart-container">
+
+                            <canvas id="trafficChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 WEATHER
+                 ================================================= -->
+
+            <section
+                id="weather"
+                class="content-section"
+            >
+
+                <div class="dashboard-header">
+
+                    <h2>
+                        Weather & Safety
+                    </h2>
+
+                    <p>
+                        Environmental conditions affecting road safety.
+                    </p>
+
+                </div>
+
+
+                <div class="weather-grid">
+
+
+                    <div class="weather-card">
+
+                        <h3>
+                            Temperature
+                        </h3>
+
+                        <div class="weather-value">
+                            24°C
+                        </div>
+
+                        <div class="weather-description">
+                            Current temperature
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-card">
+
+                        <h3>
+                            Humidity
+                        </h3>
+
+                        <div class="weather-value">
+                            72%
+                        </div>
+
+                        <div class="weather-description">
+                            Atmospheric humidity
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-card">
+
+                        <h3>
+                            Visibility
+                        </h3>
+
+                        <div class="weather-value">
+                            8.4 km
+                        </div>
+
+                        <div class="weather-description">
+                            Current visibility
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-card">
+
+                        <h3>
+                            Conditions
+                        </h3>
+
+                        <div class="weather-value">
+                            Cloudy
+                        </div>
+
+                        <div class="weather-description">
+                            Current weather
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-card">
+
+                        <h3>
+                            Wind
+                        </h3>
+
+                        <div class="weather-value">
+                            12 km/h
+                        </div>
+
+                        <div class="weather-description">
+                            Average wind speed
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-card">
+
+                        <h3>
+                            Safety impact
+                        </h3>
+
+                        <div class="weather-value">
+                            Moderate
+                        </div>
+
+                        <div class="weather-description">
+                            Environmental risk
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 HISTORY
+                 ================================================= -->
+
+            <section
+                id="history"
+                class="content-section"
+            >
+
+                <div class="dashboard-header">
+
+                    <h2>
+                        Prediction History
+                    </h2>
+
+                    <p>
+                        Review previous accident-risk assessments.
+                    </p>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <div class="panel-title">
+                                Prediction records
+                            </div>
+
+                            <div class="panel-subtitle">
+                                Stored locally in this browser
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table id="historyTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Date
+                                    </th>
+
+                                    <th>
+                                        Risk
+                                    </th>
+
+                                    <th>
+                                        Traffic
+                                    </th>
+
+                                    <th>
+                                        Weather
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td colspan="5">
+                                        No predictions yet.
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 AI MODEL
+                 ================================================= -->
+
+            <section
+                id="model"
+                class="content-section"
+            >
+
+                <div class="dashboard-header">
+
+                    <h2>
+                        AI Model Performance
+                    </h2>
+
+                    <p>
+                        Model metrics and explainable risk factors.
+                    </p>
+
+                </div>
+
+
+                <div class="model-grid">
+
+
+                    <div class="model-card">
+
+                        <h3>
+                            Accuracy
+                        </h3>
+
+                        <div class="model-value">
+                            92.4%
+                        </div>
+
+                        <div class="model-description">
+                            Overall prediction accuracy
+                        </div>
+
+                    </div>
+
+
+                    <div class="model-card">
+
+                        <h3>
+                            Precision
+                        </h3>
+
+                        <div class="model-value">
+                            89.7%
+                        </div>
+
+                        <div class="model-description">
+                            High-risk classification precision
+                        </div>
+
+                    </div>
+
+
+                    <div class="model-card">
+
+                        <h3>
+                            Recall
+                        </h3>
+
+                        <div class="model-value">
+                            91.2%
+                        </div>
+
+                        <div class="model-description">
+                            Risk detection recall
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="panel"
+                    style="margin-top:18px;"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <div class="panel-title">
+                                Explainable AI
+                            </div>
+
+                            <div class="panel-subtitle">
+                                Factors contributing to risk prediction
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-body">
+
+                        <div class="factors">
+
+
+                            <div class="factor">
+
+                                <div class="factor-header">
+
+                                    <span>
+                                        Traffic density
+                                    </span>
+
+                                    <strong>
+                                        30%
+                                    </strong>
+
+                                </div>
+
+                                <div class="factor-bar">
+                                    <i style="width:70%"></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-header">
+
+                                    <span>
+                                        Weather conditions
+                                    </span>
+
+                                    <strong>
+                                        20%
+                                    </strong>
+
+                                </div>
+
+                                <div class="factor-bar">
+                                    <i style="width:50%"></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-header">
+
+                                    <span>
+                                        Road condition
+                                    </span>
+
+                                    <strong>
+                                        18%
+                                    </strong>
+
+                                </div>
+
+                                <div class="factor-bar">
+                                    <i style="width:45%"></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-header">
+
+                                    <span>
+                                        Visibility
+                                    </span>
+
+                                    <strong>
+                                        15%
+                                    </strong>
+
+                                </div>
+
+                                <div class="factor-bar">
+                                    <i style="width:38%"></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-header">
+
+                                    <span>
+                                        Time of day
+                                    </span>
+
+                                    <strong>
+                                        10%
+                                    </strong>
+
+                                </div>
+
+                                <div class="factor-bar">
+                                    <i style="width:25%"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+     ===================================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+>
+
+    <span id="toastMessage"></span>
+
+</div>
+
+
+<!-- =====================================================
+     SCRIPTS
+     ===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    let trafficMap;
+    let trafficLayer;
+    let userMarker;
+    function locateUser() {
+    if (!navigator.geolocation) {
+        alert("Location is not supported by this browser.");
+        return;
+    }
+
+    const button = document.getElementById("locateMe");
+
+    if (button) {
+        button.textContent = "📍 Detecting location...";
+        button.disabled = true;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+
+            const location = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            trafficMap.setCenter(location);
+            trafficMap.setZoom(15);
+
+            if (userMarker) {
+                userMarker.setMap(null);
+            }
+
+            userMarker = new google.maps.Marker({
+                position: location,
+                map: trafficMap,
+                title: "Your Current Location",
+                animation: google.maps.Animation.DROP
+            });
+
+            const risk = Math.floor(Math.random() * 35) + 25;
+
+            let riskLevel;
+
+            if (risk >= 70) {
+                riskLevel = "HIGH";
+            } else if (risk >= 45) {
+                riskLevel = "MODERATE";
+            } else {
+                riskLevel = "LOW";
+            }
+
+            const riskPercentage =
+                document.getElementById("currentRiskPercentage");
+
+            const riskLevelElement =
+                document.getElementById("currentRiskLevel");
+
+            const coordinates =
+                document.getElementById("currentCoordinates");
+
+            if (riskPercentage) {
+                riskPercentage.textContent = risk + "%";
+            }
+
+            if (riskLevelElement) {
+                riskLevelElement.textContent = riskLevel + " RISK";
+            }
+
+            if (coordinates) {
+                coordinates.textContent =
+                    location.lat.toFixed(5) +
+                    ", " +
+                    location.lng.toFixed(5);
+            }
+
+            if (button) {
+                button.textContent = "📍 Location Detected";
+                button.disabled = false;
+            }
+        },
+
+        function(error) {
+
+            if (button) {
+                button.textContent = "📍 Use My Location";
+                button.disabled = false;
+            }
+
+            if (error.code === 1) {
+                alert(
+                    "Location permission was denied. Please allow location access."
+                );
+            } else {
+                alert(
+                    "Unable to detect your location. Please try again."
+                );
+            }
+        }
+    );
+}
+
+    function initTrafficMap() {
+        const defaultLocation = {
+            lat: 15.4589,
+            lng: 75.0078
+        };
+
+        trafficMap = new google.maps.Map(
+            document.getElementById("trafficMap"),
+            {
+                center: defaultLocation,
+                zoom: 13,
+                mapTypeControl: true,
+                streetViewControl: false,
+                fullscreenControl: true
+            }
+        );
+
+        trafficLayer = new google.maps.TrafficLayer({
+            autoRefresh: true
+        });
+
+        trafficLayer.setMap(trafficMap);
+                // TrafficSafe AI demo risk hotspots
+        const hotspots = [
+            {
+                position: { lat: 15.4598, lng: 75.0120 },
+                title: "High Risk Area",
+                risk: "82%",
+                level: "HIGH",
+                factors: "High traffic density • Poor road condition"
+            },
+            {
+                position: { lat: 15.4555, lng: 75.0050 },
+                title: "Medium Risk Area",
+                risk: "56%",
+                level: "MEDIUM",
+                factors: "Moderate traffic • Reduced visibility"
+            },
+            {
+                position: { lat: 15.4625, lng: 75.0025 },
+                title: "High Risk Area",
+                risk: "74%",
+                level: "HIGH",
+                factors: "Heavy traffic • Night conditions"
+            },
+            {
+                position: { lat: 15.4515, lng: 75.0105 },
+                title: "Low Risk Area",
+                risk: "24%",
+                level: "LOW",
+                factors: "Low traffic • Good road conditions"
+            }
+        ];
+
+        hotspots.forEach((hotspot) => {
+            const marker = new google.maps.Marker({
+                position: hotspot.position,
+                map: trafficMap,
+                title: hotspot.title
+            });
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="min-width:220px;padding:4px;font-family:Arial,sans-serif;">
+                        <h3 style="margin:0 0 8px;color:#111;">
+                            ${hotspot.title}
+                        </h3>
+
+                        <div style="font-size:24px;font-weight:700;color:#dc2626;">
+                            ${hotspot.risk}
+                        </div>
+
+                        <div style="margin:4px 0 8px;font-weight:600;">
+                            ${hotspot.level} RISK
+                        </div>
+
+                        <p style="margin:0;color:#555;font-size:13px;">
+                            ${hotspot.factors}
+                        </p>
+
+                        <p style="margin:10px 0 0;color:#888;font-size:11px;">
+                            TrafficSafe AI • Demo prediction
+                        </p>
+                    </div>
+                `
+            });
+
+            marker.addListener("click", () => {
+                infoWindow.open({
+                    anchor: marker,
+                    map: trafficMap
+                });
+            });
+        });
+
+        document
+            .getElementById("locateMe")
+            .addEventListener("click", locateUser);
+    }
+function locateUser() {
+    if (!navigator.geolocation) {
+        alert("Location is not supported by this browser.");
+        return;
+    }
+
+    const button = document.getElementById("locateMe");
+
+    if (button) {
+        button.textContent = "📍 Detecting location...";
+        button.disabled = true;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+
+            const location = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            // Move map to user's location
+            trafficMap.setCenter(location);
+            trafficMap.setZoom(15);
+
+            // Remove previous marker
+            if (userMarker) {
+                userMarker.setMap(null);
+            }
+
+            // Create user location marker
+            userMarker = new google.maps.Marker({
+                position: location,
+                map: trafficMap,
+                title: "Your Current Location",
+                animation: google.maps.Animation.DROP
+            });
+
+            // Demo risk calculation
+            const risk = Math.floor(Math.random() * 35) + 25;
+
+            let riskLevel;
+
+            if (risk >= 70) {
+                riskLevel = "HIGH";
+            } else if (risk >= 45) {
+                riskLevel = "MODERATE";
+            } else {
+                riskLevel = "LOW";
+            }
+
+            // Update Current Area Risk panel
+            const riskPercentage =
+                document.getElementById("currentRiskPercentage");
+
+            const riskLevelElement =
+                document.getElementById("currentRiskLevel");
+
+            const coordinates =
+                document.getElementById("currentCoordinates");
+
+            if (riskPercentage) {
+                riskPercentage.textContent = risk + "%";
+            }
+
+            if (riskLevelElement) {
+                riskLevelElement.textContent = riskLevel + " RISK";
+            }
+
+            if (coordinates) {
+                coordinates.textContent =
+                    location.lat.toFixed(5) +
+                    ", " +
+                    location.lng.toFixed(5);
+            }
+
+            if (button) {
+                button.textContent = "📍 Location Detected";
+                button.disabled = false;
+            }
+        },
+
+        function(error) {
+
+            if (button) {
+                button.textContent = "📍 Use My Location";
+                button.disabled = false;
+            }
+
+            if (error.code === 1) {
+                alert(
+                    "Location permission was denied. Please allow location access in your browser."
+                );
+            } else {
+                alert(
+                    "Unable to detect your location. Please try again."
+                );
+            }
+        }
+    );
+}
+    
+</script>
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrqw41bEdVdwuPydoqUjIiUu7lB-wmFAM&callback=initTrafficMap"
+    async
+    defer>
+</script>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
